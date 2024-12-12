@@ -1,5 +1,5 @@
 # Medieval 2d Platformer Godot Game
-##
+## 2D Fighting Platformer Game made with Godot Engine
 
 ### Assets Used: 
 #### Medieval Warrior Pack 3 by Luiz Melo https://luizmelo.itch.io/medieval-warrior-pack-3
