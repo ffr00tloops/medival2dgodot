@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ce2rtn6wdp2xh"]
+[gd_scene load_steps=34 format=3 uid="uid://ce2rtn6wdp2xh"]
 
 [ext_resource type="Texture2D" uid="uid://d1t7uo477dfas" path="res://background/Hills Layer 01.png" id="1_i5enw"]
 [ext_resource type="Texture2D" uid="uid://dkigjf7n3ks78" path="res://background/Hills Layer 02.png" id="2_jgddp"]
@@ -17,9 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://dsrg3h33a8d3m" path="res://sprites/idle/tile007.png" id="16_h6wy3"]
 [ext_resource type="Texture2D" uid="uid://b5e7qc3minami" path="res://sprites/idle/tile008.png" id="17_y00kn"]
 [ext_resource type="Texture2D" uid="uid://dmhcfe2tuucta" path="res://sprites/idle/tile009.png" id="18_pq0is"]
+[ext_resource type="Texture2D" uid="uid://cl0yxfr6ya2to" path="res://sprites/slash/tile000.png" id="19_2y3c2"]
 [ext_resource type="Texture2D" uid="uid://cnrybuatku4tm" path="res://sprites/jump/tile000.png" id="19_cpkf6"]
+[ext_resource type="Texture2D" uid="uid://cy5tol2ra3hrd" path="res://sprites/slash/tile001.png" id="20_7fofy"]
 [ext_resource type="Texture2D" uid="uid://djhlnwna2kb8m" path="res://sprites/jump/tile001.png" id="20_lt6tj"]
 [ext_resource type="Texture2D" uid="uid://dp3ywvmaxwmsf" path="res://sprites/run/tile000.png" id="21_2rwgo"]
+[ext_resource type="Texture2D" uid="uid://dvwofvmn45qto" path="res://sprites/slash/tile002.png" id="21_8k3iy"]
+[ext_resource type="Texture2D" uid="uid://blv7pqgwx413k" path="res://sprites/slash/tile003.png" id="22_hbepo"]
 [ext_resource type="Texture2D" uid="uid://bk83vcgrthext" path="res://sprites/run/tile001.png" id="22_pvc7a"]
 [ext_resource type="Texture2D" uid="uid://htjk8mwoied7" path="res://sprites/run/tile002.png" id="23_1wpdh"]
 [ext_resource type="Texture2D" uid="uid://dns4d536acrfb" path="res://sprites/run/tile003.png" id="24_4yhuu"]
@@ -28,7 +32,7 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="27_wpbti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y8sjq"]
-size = Vector2(1153.5, 42)
+size = Vector2(1313.75, 42)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h1olm"]
 animations = [{
@@ -80,6 +84,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("19_2y3c2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7fofy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_8k3iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_hbepo")
+}],
+"loop": true,
+"name": &"slash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("19_cpkf6")
 }, {
 "duration": 1.0,
@@ -114,8 +135,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n61b5"]
-radius = 10.0757
-height = 34.3927
+radius = 19.2752
+height = 74.257
 
 [node name="First Level" type="Node2D"]
 
@@ -141,7 +162,7 @@ texture = ExtResource("2_jgddp")
 layout_mode = 0
 offset_left = 5.0
 offset_top = -1.0
-offset_right = 1158.0
+offset_right = 1179.0
 offset_bottom = 651.0
 texture = ExtResource("3_1grug")
 
@@ -149,36 +170,35 @@ texture = ExtResource("3_1grug")
 layout_mode = 0
 offset_left = -78.0
 offset_top = 58.0
-offset_right = 1150.0
+offset_right = 1177.0
 offset_bottom = 627.0
 texture = ExtResource("4_d05sn")
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(-78, 398)
+position = Vector2(547, 426)
 
-[node name="floor" type="TextureRect" parent="Floor"]
-offset_left = 75.0
-offset_top = -404.0
-offset_right = 1231.0
-offset_bottom = 252.0
+[node name="floor" type="Sprite2D" parent="Floor"]
+position = Vector2(-1, -83)
+scale = Vector2(2.57812, 2.35156)
 texture = ExtResource("5_mpaop")
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
-position = Vector2(655, 230)
+position = Vector2(2.125, 195)
 shape = SubResource("RectangleShape2D_y8sjq")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(44, 96)
+position = Vector2(121, 549)
 script = ExtResource("27_wpbti")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(101, 182)
-scale = Vector2(2.28273, 2.55868)
+position = Vector2(-118, -69)
+scale = Vector2(3.73396, 3.64971)
 sprite_frames = SubResource("SpriteFrames_h1olm")
-animation = &"up"
+animation = &"slash"
+frame_progress = 0.601724
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(108, 181)
+position = Vector2(-113, -106)
 scale = Vector2(2.28273, 2.55868)
 shape = SubResource("CapsuleShape2D_n61b5")

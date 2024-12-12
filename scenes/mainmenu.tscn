@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckgl1llpdigso"]
+
+[ext_resource type="Script" path="res://mainmenu.gd" id="1_s081w"]
+[ext_resource type="FontFile" uid="uid://nogeyose8biw" path="res://fonts/Pixel Game.otf" id="1_spay7"]
+[ext_resource type="Texture2D" uid="uid://d1t7uo477dfas" path="res://background/Hills Layer 01.png" id="3_8a3m2"]
+
+[sub_resource type="Theme" id="Theme_h0o5l"]
+resource_local_to_scene = true
+default_font = ExtResource("1_spay7")
+default_font_size = 36
+
+[node name="Mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -2.0
+offset_right = 19.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_h0o5l")
+script = ExtResource("1_s081w")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -5.0
+offset_right = 1130.0
+offset_bottom = 651.0
+texture = ExtResource("3_8a3m2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 465.0
+offset_top = 329.0
+offset_right = 665.0
+offset_bottom = 529.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+text = "Play
+"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 183.0
+offset_top = 105.0
+offset_right = 953.0
+offset_bottom = 227.0
+theme_override_colors/font_color = Color(0.414399, 0.345203, 0.21712, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 120
+text = "2d Medieval GAme"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

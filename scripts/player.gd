@@ -35,5 +35,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_pressed("ui_left"):
 		$AnimatedSprite2D.play("walk")
 		$AnimatedSprite2D.flip_h = true
+	elif Input.is_action_pressed("attack1"):
+		$AnimatedSprite2D.play("slash")
 	else:
 		$AnimatedSprite2D.play("idle")
